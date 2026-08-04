@@ -1,0 +1,8 @@
+NEXORA CORRIGIDO
+
+1. Abra index.html para testar. Ele contém CSS e JavaScript incorporados e funciona mesmo se a pasta assets não for carregada.
+2. Para GitHub Pages, envie TODO o conteúdo desta pasta para a raiz do repositório.
+3. Após publicar, pressione Ctrl+F5 ou limpe os dados do site para remover o cache antigo.
+4. O service worker só funciona em localhost ou HTTPS; isso é normal.
+
+Arquivo alternativo: nexora-standalone.html (mesmo conteúdo, útil para teste direto).
