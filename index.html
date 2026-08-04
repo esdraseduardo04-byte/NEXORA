@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#070711"><meta name="description" content="NEXORA é uma central arcade offline com doze jogos, perfil, progressão, skins e conquistas."><meta property="og:title" content="NEXORA — Offline Arcade"><meta property="og:description" content="Doze jogos gratuitos, skins, perfil, XP e conquistas direto no navegador."><meta property="og:type" content="website"><meta property="og:image" content="assets/icons/icon-512.png"><link rel="manifest" href="manifest.json"><link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/icons/icon-192.png"><link rel="stylesheet" href="assets/css/style.css"><title>NEXORA — Offline Arcade</title></head><body>
+  <div class="page-shell">
+    <nav class="topbar" aria-label="Navegação principal">
+      <div class="brand"><span class="brand-mark"><i data-lucide="gamepad-2"></i></span><span>NEXORA</span></div>
+      <div class="status-pill"><span class="status-dot"></span>Offline e instalável</div>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <div class="eyebrow"><i data-lucide="sparkles" style="width:15px"></i> NEXORA Arcade Collection</div>
+        <h1>Seu arcade.<span>Em qualquer lugar.</span></h1>
+      </div>
+      <div class="hero-copy">
+        Doze jogos evoluídos para funcionar diretamente no navegador. Sem cadastro, sem anúncios e com modos para jogar sozinho ou acompanhado.
+        <div class="stats"><div class="stat"><strong>12</strong><span>jogos</span></div><div class="stat"><strong>100%</strong><span>gratuito</span></div><div class="stat"><strong>0</strong><span>downloads</span></div></div>
+      </div>
+    </header>
+
+
+    <section class="platform-bar" aria-label="Perfil e continuação">
+      <button id="profile-card" class="profile-card"><span id="profile-avatar" class="avatar">🎮</span><span class="profile-main"><strong id="profile-name">Jogador</strong><small id="profile-level">Nível 1 · 0 XP</small><span class="level-bar"><span id="profile-progress"></span></span></span><span>⚙</span></button>
+      <div class="continue-card"><span><small>Continue jogando</small><strong id="continue-name">Snake Neon</strong><small id="continue-record">Recorde: 0</small></span><button id="continue-btn" class="primary-btn">Continuar</button>
+<button onclick="openGame('dodge')" data-game-card data-category="arcade" class="game-card group" aria-label="Abrir Neon Dodge"><span class="card-glow"></span><span class="game-icon">🚀</span><span class="game-copy"><span class="game-kicker">Novo · Arcade</span><strong>Neon Dodge</strong><small>Desvie dos meteoros e sobreviva cada vez mais.</small></span><span class="game-footer"><span>Setas</span><i data-lucide="arrow-up-right"></i></span></button>
+<button onclick="openGame('reaction')" data-game-card data-category="casual" class="game-card group" aria-label="Abrir Reflexo Turbo"><span class="card-glow"></span><span class="game-icon">⚡</span><span class="game-copy"><span class="game-kicker">Novo · Reflexo</span><strong>Reflexo Turbo</strong><small>Teste sua velocidade de reação em cinco rodadas.</small></span><span class="game-footer"><span>Toque</span><i data-lucide="arrow-up-right"></i></span></button>
+<button onclick="openGame('connect4')" data-game-card data-category="strategy" class="game-card group" aria-label="Abrir Conecta 4"><span class="card-glow"></span><span class="game-icon">🔴</span><span class="game-copy"><span class="game-kicker">Novo · Estratégia</span><strong>Conecta 4</strong><small>Alinhe quatro peças antes do segundo jogador.</small></span><span class="game-footer"><span>2 jogadores</span><i data-lucide="arrow-up-right"></i></span></button></div>
+    </section>
+    <div class="quick-actions"><button id="random-btn" class="ghost-btn">🎲 Jogo aleatório</button><button id="records-btn" class="ghost-btn">🏆 Conquistas</button><button id="missions-btn" class="ghost-btn">🎯 Missões</button><button id="shop-btn" class="ghost-btn">🛍️ Loja</button><button id="settings-btn" class="ghost-btn">🎛 Preferências</button></div>
+    <section class="dashboard" aria-label="Estatísticas"><div class="dashboard-panel"><small>XP total</small><strong id="stat-xp">0</strong></div><div class="dashboard-panel"><small>Moedas</small><strong id="stat-coins">0</strong></div><div class="dashboard-panel"><small>Conquistas</small><strong id="stat-achievements">0/6</strong></div><div class="dashboard-panel"><small>Partidas</small><strong id="stat-plays">0</strong></div></section>
+
+    <section aria-labelledby="catalog-title">
+      <div class="section-head"><h2 id="catalog-title">Escolha seu próximo jogo</h2><div class="filters" aria-label="Filtros de jogos"><button class="filter-btn active" data-filter="all">Todos</button><button class="filter-btn" data-filter="arcade">Arcade</button><button class="filter-btn" data-filter="strategy">Estratégia</button><button class="filter-btn" data-filter="casual">Casual</button></div></div>
+      <div class="game-grid"><button onclick="openGame('snake')" data-game-card data-category="arcade" class="game-card group" aria-label="Abrir Snake Neon">
+  <span class="card-glow"></span>
+  <span class="game-icon" aria-hidden="true">🐍</span>
+  <span class="game-copy"><span class="game-kicker">Clássico</span><strong>Snake Neon</strong><small>Colete frutas, cresça e sobreviva no grid.</small></span>
+  <span class="game-footer"><span>Setas</span><i data-lucide="arrow-up-right"></i></span>
+</button>
+<button onclick="openGame('ttt')" data-game-card data-category="strategy" class="game-card group" aria-label="Abrir Jogo da Velha">
+  <span class="card-glow"></span>
+  <span class="game-icon" aria-hidden="true">✖️</span>
+  <span class="game-copy"><span class="game-kicker">Estratégia</span><strong>Jogo da Velha</strong><small>Dispute contra outra pessoa ou enfrente a IA.</small></span>
+  <span class="game-footer"><span>Mouse</span><i data-lucide="arrow-up-right"></i></span>
+</button>
+<button onclick="openGame('memory')" data-game-card data-category="strategy" class="game-card group" aria-label="Abrir Memória">
+  <span class="card-glow"></span>
+  <span class="game-icon" aria-hidden="true">🧠</span>
+  <span class="game-copy"><span class="game-kicker">Memória</span><strong>Memória</strong><small>Encontre todos os pares usando o menor número de tentativas.</small></span>
+  <span class="game-footer"><span>Mouse</span><i data-lucide="arrow-up-right"></i></span>
+</button>
+<button onclick="openGame('pong')" data-game-card data-category="arcade" class="game-card group" aria-label="Abrir Pong">
+  <span class="card-glow"></span>
+  <span class="game-icon" aria-hidden="true">🏓</span>
+  <span class="game-copy"><span class="game-kicker">Arcade</span><strong>Pong</strong><small>Duelo retrô com modo local e inteligência artificial.</small></span>
+  <span class="game-footer"><span>Teclado</span><i data-lucide="arrow-up-right"></i></span>
+</button>
+<button onclick="openGame('quiz')" data-game-card data-category="casual" class="game-card group" aria-label="Abrir Quiz Rápido">
+  <span class="card-glow"></span>
+  <span class="game-icon" aria-hidden="true">❓</span>
+  <span class="game-copy"><span class="game-kicker">Conhecimento</span><strong>Quiz Rápido</strong><small>Cinco perguntas aleatórias para testar seus conhecimentos.</small></span>
+  <span class="game-footer"><span>Mouse</span><i data-lucide="arrow-up-right"></i></span>
+</button>
+<button onclick="openGame('breakout')" data-game-card data-category="arcade" class="game-card group" aria-label="Abrir Breakout">
+  <span class="card-glow"></span>
+  <span class="game-icon" aria-hidden="true">🧱</span>
+  <span class="game-copy"><span class="game-kicker">Arcade</span><strong>Breakout</strong><small>Destrua os blocos sem deixar a bola escapar.</small></span>
+  <span class="game-footer"><span>Mouse</span><i data-lucide="arrow-up-right"></i></span>
+</button>
+<button onclick="openGame('whack')" data-game-card data-category="casual" class="game-card group" aria-label="Abrir Whack-a-Mole">
+  <span class="card-glow"></span>
+  <span class="game-icon" aria-hidden="true">🔨</span>
+  <span class="game-copy"><span class="game-kicker">Reflexo</span><strong>Whack-a-Mole</strong><small>Acerte o alvo antes que o tempo termine.</small></span>
+  <span class="game-footer"><span>Mouse</span><i data-lucide="arrow-up-right"></i></span>
+</button>
+<button onclick="openGame('simon')" data-game-card data-category="strategy" class="game-card group" aria-label="Abrir Simon">
+  <span class="card-glow"></span>
+  <span class="game-icon" aria-hidden="true">🎵</span>
+  <span class="game-copy"><span class="game-kicker">Memória</span><strong>Simon</strong><small>Memorize e repita sequências cada vez maiores.</small></span>
+  <span class="game-footer"><span>Mouse</span><i data-lucide="arrow-up-right"></i></span>
+</button>
+<button onclick="openGame('game2048')" data-game-card data-category="strategy" class="game-card group" aria-label="Abrir 2048">
+  <span class="card-glow"></span>
+  <span class="game-icon" aria-hidden="true">🔢</span>
+  <span class="game-copy"><span class="game-kicker">Puzzle</span><strong>2048</strong><small>Combine números e tente alcançar o bloco 2048.</small></span>
+  <span class="game-footer"><span>Setas</span><i data-lucide="arrow-up-right"></i></span>
+</button></div>
+    </section>
+    <footer class="site-footer"><span><strong>NEXORA</strong> · Sua central arcade offline</span><span>Teclado, mouse e controles móveis</span></footer>
+  </div>
+
+  <div id="game-modal" class="modal-overlay fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-game-title">
+    <div class="modal-panel">
+      <div class="modal-head"><span id="modal-game-title">Jogo</span><div class="modal-tools"><button id="pause-btn" class="tool-btn" aria-label="Pausar"><span id="pause-label">Pausar</span></button><button id="fullscreen-btn" class="tool-btn" aria-label="Tela cheia">⛶</button><button onclick="closeGame()" class="close-btn" aria-label="Fechar jogo"><i data-lucide="x"></i></button></div></div>
+      <div id="game-container" class="flex flex-col items-center gap-4"></div>
+    </div><div class="pause-overlay"><div class="pause-box"><strong>Jogo pausado</strong><button id="resume-btn" class="primary-btn">Continuar</button></div></div>
+    </div>
+  </div>
+
+  
+  <div id="profile-modal" class="platform-modal" role="dialog" aria-modal="true" aria-labelledby="profile-title"><div class="settings-panel"><div class="panel-head"><h2 id="profile-title">Perfil e personalização</h2><button id="close-profile" class="icon-btn">✕</button></div><div class="form-grid"><div class="field"><label for="profile-input">Nome do jogador</label><input id="profile-input" maxlength="18"></div><div class="field"><label for="favorite-select">Jogo favorito</label><select id="favorite-select"><option value="snake">Snake Neon</option><option value="ttt">Jogo da Velha</option><option value="memory">Memória</option><option value="pong">Pong</option><option value="quiz">Quiz Rápido</option><option value="breakout">Breakout</option><option value="whack">Whack-a-Mole</option><option value="simon">Simon</option><option value="game2048">2048</option><option value="dodge">Neon Dodge</option><option value="reaction">Reflexo Turbo</option><option value="connect4">Conecta 4</option></select></div><div class="field full"><label>Avatar</label><div class="avatar-grid"><button class="avatar-chip" data-avatar="🎮">🎮</button><button class="avatar-chip" data-avatar="👾">👾</button><button class="avatar-chip" data-avatar="🕹️">🕹️</button><button class="avatar-chip" data-avatar="🐍">🐍</button><button class="avatar-chip" data-avatar="🏆">🏆</button></div></div><div class="field full"><label>Tema</label><div class="theme-grid"><button class="theme-chip" data-theme="neon">Neon</button><button class="theme-chip" data-theme="cyber">Cyber</button><button class="theme-chip" data-theme="toxic">Toxic</button><button class="theme-chip" data-theme="retro">Retro</button><button class="theme-chip" data-theme="crimson">Crimson</button><button class="theme-chip" data-theme="gold">Gold</button><button class="theme-chip" data-theme="light">Claro</button></div></div><div class="field"><label><input id="sound-toggle" type="checkbox"> Efeitos sonoros</label></div><div class="field"><label><input id="music-toggle" type="checkbox"> Música ambiente</label></div><div class="field full"><label for="volume-range">Volume</label><input id="volume-range" type="range" min="0" max="1" step="0.05"></div></div><h3>Conquistas</h3><div id="achievement-list" class="achievements"></div><button id="save-profile" class="primary-btn" style="width:100%;margin-top:18px">Salvar perfil</button></div></div>
+  <div id="hub-modal" class="platform-modal" role="dialog" aria-modal="true"><div class="settings-panel"><div class="panel-head"><h2 id="hub-title">Missões diárias</h2><button id="close-hub" class="icon-btn">✕</button></div><div id="mission-list" class="mission-list"></div><div id="shop-list" class="shop-list" hidden></div></div></div><div id="toast-stack" class="toast-stack" aria-live="polite"></div>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/platform.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/games/snake.js"></script>
+  <script src="assets/js/games/ttt.js"></script>
+  <script src="assets/js/games/memory.js"></script>
+  <script src="assets/js/games/pong.js"></script>
+  <script src="assets/js/games/quiz.js"></script>
+  <script src="assets/js/games/breakout.js"></script>
+  <script src="assets/js/games/whack.js"></script>
+  <script src="assets/js/games/simon.js"></script>
+  <script src="assets/js/games/game2048.js"></script><script src="assets/js/games/dodge.js"></script><script src="assets/js/games/reaction.js"></script><script src="assets/js/games/connect4.js"></script><script>if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js'));</script></body></html>
