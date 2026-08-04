@@ -1,6 +1,0 @@
-function initConnect4(container){
- let board=Array.from({length:6},()=>Array(7).fill(0)),turn=1,done=false;const status=document.createElement('p');status.className='text-purple-300 font-bold text-lg';const grid=document.createElement('div');grid.className='connect4-grid';container.append(status,grid);
- function win(r,c,p){return [[1,0],[0,1],[1,1],[1,-1]].some(([dr,dc])=>{let n=1;for(const s of [-1,1]){let rr=r+dr*s,cc=c+dc*s;while(board[rr]?.[cc]===p){n++;rr+=dr*s;cc+=dc*s}}return n>=4})}
- function render(){grid.innerHTML='';status.textContent=done?'Fim de jogo':`Vez do Jogador ${turn}`;for(let r=0;r<6;r++)for(let c=0;c<7;c++){const b=document.createElement('button');b.className='connect4-cell p'+board[r][c];b.onclick=()=>drop(c);grid.append(b)}}
- function drop(c){if(done)return;let r=5;while(r>=0&&board[r][c])r--;if(r<0)return;board[r][c]=turn;if(win(r,c,turn)){done=true;status.textContent=`Jogador ${turn} venceu!`;Arcade.reward(40,15);Arcade.beep('win')}else turn=turn===1?2:1;render()}render()
-}
